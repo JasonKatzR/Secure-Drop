@@ -1,6 +1,7 @@
 import sys
 from accCreation import userExist, createUser
 from login import verifyUser
+from addContact import addContact
 
 def main():
     if not userExist():
@@ -21,6 +22,23 @@ def main():
 
     print("Welcome to SecureDrop.")
     print('Type "help" For Commands.')
+
+    while (True):
+        command = input("secure_drop> ").strip().lower()
+
+        if (command == "help"):
+            print('"add"  -> Add a new contact')
+            print('"list" -> List all online contacts')
+            print('"send" -> Transfer file to contact')
+            print('"exit" -> Exit SecureDrop')
+
+        if (command == "exit"):
+            sys.exit(0)
+
+        if (command == "add"):
+            addContact(aesKey)
+
+
 
 if __name__ == "__main__":
     main()
